@@ -24,6 +24,8 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - PGSERVICEFILE=/app/backend/.pg_service.conf
+      - PGPASSFILE=/app/backend/.pgpass
     depends_on:
       - db
   db:
