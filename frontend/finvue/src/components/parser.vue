@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios';
+import User from './user';
 
 export default {
   name: 'Parser',
@@ -25,9 +26,16 @@ export default {
   },
   methods: {
     fetch() {
+      this.users = [];
       axios.get('http://localhost:8080/users/users/')
         .then(response => {
-          this.users = response.data;
+          response.data.forEach(user => {
+            let userObject = User;
+            userObject.id = user.id;
+            userObject.fname = user.first_name;
+            userObject.lname = user.last_name;
+            this.users.push(userObject);
+          })
       }).catch(() => {
         console.log("Error");
       });
