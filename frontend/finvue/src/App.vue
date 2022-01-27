@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Parser />
+    <Form @clicked="refreshParser"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Parser from './components/parser.vue'
+import Form from './components/form.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Parser,
+    Form
+  },
+  data () {
+    return {
+      Parser,
+    }
+  },
+  methods: {
+    refreshParser (value) {
+      this.Parser.created();
+      console.log("Parent");
+      console.log(value);
+    }
   }
 }
 </script>
