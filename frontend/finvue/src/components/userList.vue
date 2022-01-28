@@ -1,5 +1,5 @@
 <template>
-  <div class="UserList">
+  <div class="userList">
     <table>
       <tr>
         <th>First name:</th>
@@ -14,8 +14,11 @@
 </template>
 
 <script>
+import delUser form 'userdel.vue'
+
 export default {
   name: 'userList',
+  components:
   props: [
       'users',
   ],
