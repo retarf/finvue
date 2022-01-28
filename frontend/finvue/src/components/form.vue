@@ -1,10 +1,10 @@
 <template>
   <div class="Form">
       <label>First name:</label>
-      <input v-model="fname">
+      <input v-model="first_name">
       <br/>
       <label>Last name:</label>
-      <input v-model="lname">
+      <input v-model="last_name">
       <br/>
       <br/>
       <button v-on:click="submit">Submit</button>
@@ -18,21 +18,27 @@ export default {
   name: 'Form',
   data () {
     return {
-      fname: null,
-      lname: null,
-      event: null
+      id: null,
+      first_name: null,
+      last_name: null,
     }
   },
   methods: {
     submit: function (event) {
       this.event = event;
-      this.$emit('clicked', "clicked")
       axios.post('http://localhost:8080/users/users/',
           {
-            first_name: this.fname,
-            last_name: this.lname,
+            id: this.id,
+            first_name: this.first_name,
+            last_name: this.last_name,
           }
+      ).catch(() => {
+            console.log("Error occured when user " + this.first_name + " " + this.last_name /
+            " has been added."
+          );
+        }
       )
+      this.$emit('addUser', this.$data)
     }
   },
   created() {
