@@ -1,14 +1,14 @@
 <template>
-  <button class="userDel">
-    del
-  </button>
+  <td class="Del">
+    <button>del</button>
+  </td>
 </template>
 
 <script>
 import axios from "axios"
 
 export default {
-  name: 'userDel',
+  name: 'Del',
   props: [
     'id',
     'event',
@@ -16,22 +16,21 @@ export default {
   methods: {
     del(event) {
       this.event = event;
-      axios.delete('http://localhost:8080/users/users/' + this.id + "/",
-      ).catch(() => {
+      axios.delete('http://localhost:8080/users/users/' + this.id + "/",)
+          .then(() => {
+                this.$emit('del', this.data);
+              }
+          ).catch(() => {
             console.log("Error occured when user " + this.first_name + " " + this.last_name /
                 " has been deleted."
             );
           }
       )
-      this.$emit('delUser', this.$data)
     }
 
 
   },
-}
-,
-
-}
+};
 </script>
 
 <style>

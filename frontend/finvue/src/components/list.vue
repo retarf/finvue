@@ -4,9 +4,10 @@
       <tr>
         <th>First name:</th>
         <th>Last name:</th>
+        <th></th>
       </tr>
-      <tr v-for="user in users" :key="user.id">
-        <Row :user="user"></Row>
+      <tr v-for="(user, index) in users" :key="user.id">
+        <Row :user="user" :index="index"/>
       </tr>
     </table>
   </div>
