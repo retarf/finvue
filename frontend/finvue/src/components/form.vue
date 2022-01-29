@@ -1,5 +1,6 @@
 <template>
   <div class="Form">
+      <br/>
       <label>First name:</label>
       <input v-model="first_name">
       <br/>
@@ -32,17 +33,16 @@ export default {
             first_name: this.first_name,
             last_name: this.last_name,
           }
-      ).catch(() => {
+      ).then(response => {
+        this.$emit('addUser', response.data);
+      }).catch(() => {
             console.log("Error occured when user " + this.first_name + " " + this.last_name /
             " has been added."
           );
         }
       )
-      this.$emit('addUser', this.$data)
     }
   },
-  created() {
-  }
 }
 </script>
 

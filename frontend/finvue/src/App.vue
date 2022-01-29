@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <userList :users="users" />
+    <List v-bind:users="users" />
     <Form @addUser="addUser"/>
   </div>
 </template>
 
 <script>
-import userList from './components/userList.vue'
+import List from './components/list.vue'
 import Form from './components/form.vue'
 import axios from "axios";
 
 export default {
   name: 'App',
   components: {
-    userList,
+    List,
     Form
   },
   data () {
@@ -22,20 +22,13 @@ export default {
     }
   },
   methods: {
-    refreshParser (value) {
-      this.Parser.created();
-      console.log("Parent");
-      console.log(value);
-    },
     getUsers () {
-      this.users = [];
       axios.get('http://localhost:8080/users/users/')
         .then(response => {
           this.users = response.data;
-        })
+        });
     },
     addUser (user) {
-      console.log(user);
       this.users.push(user);
     },
   },
