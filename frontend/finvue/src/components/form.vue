@@ -1,15 +1,15 @@
 <template>
-  <div class="Form">
-      <br/>
-      <label>First name:</label>
+  <tr class="Form">
+    <td>
       <input v-model="first_name">
-      <br/>
-      <label>Last name:</label>
+    </td>
+    <td>
       <input v-model="last_name">
-      <br/>
-      <br/>
-      <button v-on:click="submit">Submit</button>
-  </div>
+    </td>
+    <td>
+    <button v-on:click="submit">Submit</button>
+    </td>
+  </tr>
 </template>
 
 <script>
