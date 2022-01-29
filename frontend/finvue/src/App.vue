@@ -29,7 +29,6 @@ export default {
         });
     },
     addUser (user) {
-      console.log(user);
       this.users.push(user);
     },
   },
