@@ -35,6 +35,8 @@ export default {
           }
       ).then(response => {
         this.$emit('addUser', response.data);
+        this.first_name = null;
+        this.last_name = null;
       }).catch(() => {
             console.log("Error occured when user " + this.first_name + " " + this.last_name /
             " has been added."
