@@ -47,9 +47,3 @@ export default {
   },
 }
 </script>
-
-<style>
-  .Form {
-    position: absolute;
-  }
-</style>

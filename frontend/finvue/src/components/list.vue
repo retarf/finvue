@@ -6,9 +6,9 @@
         <th>Last name:</th>
         <th></th>
       </tr>
-      <tr v-for="(user, index) in users" :key="user.id">
+      <div v-for="(user, index) in users" :key="user.id">
         <Row :user="user" :index="index"/>
-      </tr>
+      </div>
     </table>
   </div>
 </template>
@@ -26,5 +26,10 @@ export default {
       type: Array
     },
   },
+  methods: {
+    modify: function () {
+      this.$parent.$emit("modify", {user: this.user, index: this.index})
+    }
+  }
 }
 </script>
