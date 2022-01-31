@@ -6,14 +6,14 @@
       <button @click="apply">apply</button>
     </div>
     <div v-else>
-    <td>{{ user.first_name }}</td>
-    <td>{{ user.last_name }}</td>
-    <td>
-      <button @click="del">del</button>
-    </td>
-    <td>
-      <button @click="edit">edit</button>
-    </td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>
+        <button @click="del">del</button>
+      </td>
+      <td>
+        <button @click="edit">edit</button>
+      </td>
     </div>
   </tr>
 </template>
@@ -27,10 +27,10 @@ export default {
     'user',
     'index',
   ],
-  data () {
-      return {
-        user_input: false,
-      }
+  data() {
+    return {
+      user_input: false,
+    }
   },
   methods: {
     del() {
@@ -43,10 +43,10 @@ export default {
         console.log(e)
       });
     },
-    edit () {
+    edit() {
       this.$data.user_input = !this.$data.user_input;
     },
-    apply () {
+    apply() {
       this.$data.user_input = !this.$data.user_input;
       let url = "http://localhost:8080/users/users/" + this.user.id + "/";
       let patch_data = {first_name: this.user.first_name, last_name: this.user.last_name};
@@ -57,12 +57,12 @@ export default {
         console.log(e)
       });
 
+    },
+    modify() {
+      this.$parent.$emit("modify", {first_name: this.first_name, last_name: this.last_name})
+      this.$parent.$parent
     }
   },
-  modify () {
-    this.$parent.$emit("modify", {first_name: this.first_name, last_name: this.last_name})
-    this.$parent.$parent
-  }
 }
 
 </script>

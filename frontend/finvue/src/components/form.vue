@@ -1,14 +1,14 @@
 <template>
   <div class="Form">
-      <br/>
-      <label>First name:</label>
-      <input v-model="first_name">
-      <br/>
-      <label>Last name:</label>
-      <input v-model="last_name">
-      <br/>
-      <br/>
-      <button v-on:click="submit">Submit</button>
+    <br/>
+    <label>First name:</label>
+    <input v-model="first_name">
+    <br/>
+    <label>Last name:</label>
+    <input v-model="last_name">
+    <br/>
+    <br/>
+    <button v-on:click="submit">Submit</button>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import axios from 'axios';
 
 export default {
   name: 'Form',
-  data () {
+  data() {
     return {
       id: null,
       first_name: null,
@@ -39,9 +39,9 @@ export default {
         this.last_name = null;
       }).catch(() => {
             console.log("Error occured when user " + this.first_name + " " + this.last_name /
-            " has been added."
-          );
-        }
+                " has been added."
+            );
+          }
       )
     }
   },

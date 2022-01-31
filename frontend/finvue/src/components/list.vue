@@ -26,10 +26,5 @@ export default {
       type: Array
     },
   },
-  methods: {
-    modify: function () {
-      this.$parent.$emit("modify", {user: this.user, index: this.index})
-    }
-  }
 }
 </script>
